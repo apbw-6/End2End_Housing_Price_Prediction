@@ -2,12 +2,11 @@ prefix=/Users/arpitha/Desktop/Machine_Learning_Beginner/End2End_Housing_Price_Pr
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
-enginesdir=${libdir}/engines
+enginesdir=${libdir}/engines-1.1
 
 Name: OpenSSL-libcrypto
 Description: OpenSSL cryptography library
-Version: 1.0.2u
-Requires: 
+Version: 1.1.1w
 Libs: -L${libdir} -lcrypto
-Libs.private: -Wl,-pie -Wl,-headerpad_max_install_names -Wl,-dead_strip_dylibs -Wl,-rpath,/Users/arpitha/Desktop/Machine_Learning_Beginner/End2End_Housing_Price_Prediction/venv/lib -L/Users/arpitha/Desktop/Machine_Learning_Beginner/End2End_Housing_Price_Prediction/venv/lib 
-Cflags: -I${includedir} 
+Libs.private:  
+Cflags: -I${includedir}

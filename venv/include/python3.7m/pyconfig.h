@@ -144,6 +144,9 @@
 /* Define to 1 if you have the <crypt.h> header file. */
 /* #undef HAVE_CRYPT_H */
 
+/* Define if you have the crypt_r() function. */
+/* #undef HAVE_CRYPT_R */
+
 /* Define to 1 if you have the `ctermid' function. */
 #define HAVE_CTERMID 1
 
@@ -296,7 +299,7 @@
 #define HAVE_EXPM1 1
 
 /* Define to 1 if you have the `faccessat' function. */
-/* #undef HAVE_FACCESSAT */
+#define HAVE_FACCESSAT 1
 
 /* Define if you have the 'fchdir' function. */
 #define HAVE_FCHDIR 1
@@ -305,13 +308,13 @@
 #define HAVE_FCHMOD 1
 
 /* Define to 1 if you have the `fchmodat' function. */
-/* #undef HAVE_FCHMODAT */
+#define HAVE_FCHMODAT 1
 
 /* Define to 1 if you have the `fchown' function. */
 #define HAVE_FCHOWN 1
 
 /* Define to 1 if you have the `fchownat' function. */
-/* #undef HAVE_FCHOWNAT */
+#define HAVE_FCHOWNAT 1
 
 /* Define to 1 if you have the <fcntl.h> header file. */
 #define HAVE_FCNTL_H 1
@@ -320,7 +323,7 @@
 /* #undef HAVE_FDATASYNC */
 
 /* Define to 1 if you have the `fdopendir' function. */
-/* #undef HAVE_FDOPENDIR */
+#define HAVE_FDOPENDIR 1
 
 /* Define to 1 if you have the `fexecve' function. */
 /* #undef HAVE_FEXECVE */
@@ -347,7 +350,7 @@
 #define HAVE_FSEEKO 1
 
 /* Define to 1 if you have the `fstatat' function. */
-/* #undef HAVE_FSTATAT */
+#define HAVE_FSTATAT 1
 
 /* Define to 1 if you have the `fstatvfs' function. */
 #define HAVE_FSTATVFS 1
@@ -538,9 +541,9 @@
 #define HAVE_LANGINFO_H 1
 
 /* Defined to enable large file support when an off_t is bigger than a long
-   and long long is available and at least as big as an off_t. You may need to
-   add some flags for configuration and compilation to enable this mode. (For
-   Solaris and Linux, the necessary defines are already defined.) */
+   and long long is at least as big as an off_t. You may need to add some
+   flags for configuration and compilation to enable this mode. (For Solaris
+   and Linux, the necessary defines are already defined.) */
 /* #undef HAVE_LARGEFILE_SUPPORT */
 
 /* Define to 1 if you have the 'lchflags' function. */
@@ -583,7 +586,7 @@
 #define HAVE_LINK 1
 
 /* Define to 1 if you have the `linkat' function. */
-/* #undef HAVE_LINKAT */
+#define HAVE_LINKAT 1
 
 /* Define to 1 if you have the <linux/can/bcm.h> header file. */
 /* #undef HAVE_LINUX_CAN_BCM_H */
@@ -640,7 +643,7 @@
 /* #undef HAVE_MEMRCHR */
 
 /* Define to 1 if you have the `mkdirat' function. */
-/* #undef HAVE_MKDIRAT */
+#define HAVE_MKDIRAT 1
 
 /* Define to 1 if you have the `mkfifo' function. */
 #define HAVE_MKFIFO 1
@@ -679,7 +682,7 @@
 #define HAVE_NICE 1
 
 /* Define to 1 if you have the `openat' function. */
-/* #undef HAVE_OPENAT */
+#define HAVE_OPENAT 1
 
 /* Define to 1 if you have the `openpty' function. */
 #define HAVE_OPENPTY 1
@@ -766,7 +769,7 @@
 #define HAVE_READLINK 1
 
 /* Define to 1 if you have the `readlinkat' function. */
-/* #undef HAVE_READLINKAT */
+#define HAVE_READLINKAT 1
 
 /* Define to 1 if you have the `readv' function. */
 #define HAVE_READV 1
@@ -775,7 +778,7 @@
 #define HAVE_REALPATH 1
 
 /* Define to 1 if you have the `renameat' function. */
-/* #undef HAVE_RENAMEAT */
+#define HAVE_RENAMEAT 1
 
 /* Define if readline supports append_history */
 #define HAVE_RL_APPEND_HISTORY 1
@@ -961,8 +964,8 @@
 /* Define to 1 if you have the <stdlib.h> header file. */
 #define HAVE_STDLIB_H 1
 
-/* Has stdatomic.h, atomic_int and _Atomic void* types work */
-/* #undef HAVE_STD_ATOMIC */
+/* Has stdatomic.h with atomic_int and atomic_uintptr_t */
+#define HAVE_STD_ATOMIC 1
 
 /* Define to 1 if you have the `strdup' function. */
 #define HAVE_STRDUP 1
@@ -1013,7 +1016,7 @@
 #define HAVE_SYMLINK 1
 
 /* Define to 1 if you have the `symlinkat' function. */
-/* #undef HAVE_SYMLINKAT */
+#define HAVE_SYMLINKAT 1
 
 /* Define to 1 if you have the `sync' function. */
 #define HAVE_SYNC 1
@@ -1188,7 +1191,7 @@
 #define HAVE_UNISTD_H 1
 
 /* Define to 1 if you have the `unlinkat' function. */
-/* #undef HAVE_UNLINKAT */
+#define HAVE_UNLINKAT 1
 
 /* Define to 1 if you have the `unsetenv' function. */
 #define HAVE_UNSETENV 1
@@ -1325,9 +1328,6 @@
 /* Cipher suite string for PY_SSL_DEFAULT_CIPHERS=0 */
 /* #undef PY_SSL_DEFAULT_CIPHER_STRING */
 
-/* Define to emit a locale compatibility warning in the C locale */
-#define PY_WARN_ON_C_LOCALE 1
-
 /* Define if you want to build an interpreter with many run-time checks. */
 /* #undef Py_DEBUG */
 
@@ -1447,6 +1447,10 @@
 
 /* Define if WINDOW in curses.h offers a field _flags. */
 #define WINDOW_HAS_FLAGS 1
+
+/* Define if you want build the _decimal module using a coroutine-local rather
+   than a thread-local context */
+#define WITH_DECIMAL_CONTEXTVAR 1
 
 /* Define if you want documentation strings in extension modules */
 #define WITH_DOC_STRINGS 1
