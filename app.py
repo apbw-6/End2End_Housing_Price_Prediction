@@ -16,3 +16,5 @@ def home():
 def predict_api():
     data = request.json['data']
     print(data)
+    # data is a dictionary. We want its values as a list -> converted to numpy array -> reshaped
+    print(np.array(list(data.values())).reshape(1,-1))
