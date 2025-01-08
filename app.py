@@ -2,6 +2,7 @@ import pickle
 from flask import Flask, request, app, jsonify, url_for, render_template
 import numpy as np
 import pandas as pd
+import json
 
 app = Flask(__name__)
 
@@ -17,9 +18,11 @@ def home():
 @app.route("/predict_api", methods=["POST"])
 def predict_api():
     data = request.json["data"]
-    print(data)
-    # data is a dictionary. We want to treat it as a dataframe and copy all actions that were done on test data set.
-    df = pd.DataFrame(data)
+
+    # We want to treat data as a dataframe and copy all actions that were done on test data set.
+    df = pd.DataFrame([data])
+    #df_dict = df.to_dict(orient="records")  # Convert to a list of dictionaries
+    #return jsonify({"dataframe": df_dict}), 200
     df["households"] = np.log(df["households"] + 1)
     df["population"] = np.log(df["population"] + 1)
     df["total_bedrooms"] = np.log(df["total_bedrooms"] + 1)
@@ -41,7 +44,8 @@ def predict_api():
     # model.predict() returns array, and we need the first element
     print("Prediction: ", prediction[0])
 
-    return jsonify(prediction)
+    return jsonify(prediction[0])
+    
 
 
 if __name__ == "__main__":
