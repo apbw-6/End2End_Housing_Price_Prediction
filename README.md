@@ -24,7 +24,7 @@ This project takes a basic linear regression model regarding the problem of pred
 ### Input from Client's end from Postman:
 1. Go to Postman, create a new post request.
 2. Link is: http://127.0.0.1:5000/predict_api (check the link the terminal displays)
-3. Fill in raw data: (This looks like a dictionary but the syntax is different!)
+3. Fill in raw data (also in temp.ipynb): (This looks like a dictionary but the syntax is different!)
    {
     "data": {
         "longitude": -122.21,
