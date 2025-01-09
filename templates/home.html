@@ -15,41 +15,41 @@
 <body>
  <div class="login">
 	<h1>House Price Prediction</h1>
-    <body> Enter the values of the housing data below. Then hit the Predict button to predict the cost of the house.
-    </body>
+    <p> Enter the values of the housing data below. Then hit the Predict button to predict the cost of the house.</p>
+    <br><br>
 
      <!-- Main Input For Receiving Query to our ML -->
      
     <form action="{{ url_for('predict')}}"method="post">
         <label for="longitude">Longitude:</label>
-        <input type="text" id="longitude" name="longitude" pattern="^\d+(\.\d+)?$" required 
+        <input type="text" id="longitude" name="longitude" pattern="-?\d+(\.\d+)?$" required 
                title="Please enter a valid number"><br><br>
         
-        <label for="latitude">latitude:</label>
-            <input type="text" id="latitude" name="latitude" pattern="^\d+(\.\d+)?$" required 
+        <label for="latitude">Latitude:</label>
+            <input type="text" id="latitude" name="latitude" pattern="-?\d+(\.\d+)?$" required 
                 title="Please enter a valid number"><br><br>       
 
-        <label for="housing_median_age">housing_median_age:</label>
+        <label for="housing_median_age">Housing median age:</label>
         <input type="text" id="housing_median_age" name="housing_median_age" pattern="^\d+(\.\d+)?$" required 
                title="Please enter a valid number"><br><br>
                
-        <label for="total_rooms">total_rooms:</label>
+        <label for="total_rooms">Total rooms:</label>
         <input type="text" id="total_rooms" name="total_rooms" pattern="^\d+(\.\d+)?$" required 
                title="Please enter a valid number"><br><br>
 
-        <label for="total_bedrooms">total_bedrooms:</label>
+        <label for="total_bedrooms">Total bedrooms:</label>
         <input type="text" id="total_bedrooms" name="total_bedrooms" pattern="^\d+(\.\d+)?$" required 
                title="Please enter a valid number"><br><br>       
         
-        <label for="population">population:</label>
+        <label for="population">Population:</label>
         <input type="text" id="population" name="population" pattern="^\d+(\.\d+)?$" required 
                title="Please enter a valid number"><br><br>
                
-        <label for="households">households:</label>
+        <label for="households">Households:</label>
         <input type="text" id="households" name="households" pattern="^\d+(\.\d+)?$" required 
                 title="Please enter a valid number"><br><br>       
     	
-        <label for="median_income">median_income:</label>
+        <label for="median_income">Median income:</label>
         <input type="text" id="median_income" name="median_income" pattern="^\d+(\.\d+)?$" required 
                 title="Please enter a valid number"><br><br>           
         
@@ -63,7 +63,7 @@
             <option value="INLAND">Inland</option>
             <option value="ISLAND">Island</option>
         </select>
-        
+
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
 
