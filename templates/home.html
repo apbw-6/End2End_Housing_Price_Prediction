@@ -1,6 +1,78 @@
-<h1>
-    This is the homepage.
-</h1>
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+  
+</head>
+
 <body>
-    Not much happenning here.
+ <div class="login">
+	<h1>House Price Prediction</h1>
+    <body> Enter the values of the housing data below. Then hit the Predict button to predict the cost of the house.
+    </body>
+
+     <!-- Main Input For Receiving Query to our ML -->
+     
+    <form action="{{ url_for('predict')}}"method="post">
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude" pattern="^\d+(\.\d+)?$" required 
+               title="Please enter a valid number"><br><br>
+        
+        <label for="latitude">latitude:</label>
+            <input type="text" id="latitude" name="latitude" pattern="^\d+(\.\d+)?$" required 
+                title="Please enter a valid number"><br><br>       
+
+        <label for="housing_median_age">housing_median_age:</label>
+        <input type="text" id="housing_median_age" name="housing_median_age" pattern="^\d+(\.\d+)?$" required 
+               title="Please enter a valid number"><br><br>
+               
+        <label for="total_rooms">total_rooms:</label>
+        <input type="text" id="total_rooms" name="total_rooms" pattern="^\d+(\.\d+)?$" required 
+               title="Please enter a valid number"><br><br>
+
+        <label for="total_bedrooms">total_bedrooms:</label>
+        <input type="text" id="total_bedrooms" name="total_bedrooms" pattern="^\d+(\.\d+)?$" required 
+               title="Please enter a valid number"><br><br>       
+        
+        <label for="population">population:</label>
+        <input type="text" id="population" name="population" pattern="^\d+(\.\d+)?$" required 
+               title="Please enter a valid number"><br><br>
+               
+        <label for="households">households:</label>
+        <input type="text" id="households" name="households" pattern="^\d+(\.\d+)?$" required 
+                title="Please enter a valid number"><br><br>       
+    	
+        <label for="median_income">median_income:</label>
+        <input type="text" id="median_income" name="median_income" pattern="^\d+(\.\d+)?$" required 
+                title="Please enter a valid number"><br><br>           
+        
+        
+        <label for="ocean_proximity">Ocean Proximity:</label>
+        <select id="ocean_proximity" name="ocean_proximity" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="<1H OCEAN>">Less than 1hr from ocean</option>
+            <option value="NEAR BAY">Near bay</option>
+            <option value="NEAR OCEAN">Near ocean</option>
+            <option value="INLAND">Inland</option>
+            <option value="ISLAND">Island</option>
+        </select>
+        
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+  
+   
+ </div>
+ {{prediction_text}}
+
 </body>
+</html>
