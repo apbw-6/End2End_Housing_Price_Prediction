@@ -28,6 +28,8 @@ flask==3.1.0
     # via -r requirements.in
 fonttools==4.55.3
     # via matplotlib
+gunicorn==23.0.0
+    # via -r requirements.in
 ipykernel==6.29.5
     # via -r requirements.in
 ipython==8.31.0
@@ -73,6 +75,7 @@ numpy==2.2.1
     #   seaborn
 packaging==24.2
     # via
+    #   gunicorn
     #   ipykernel
     #   matplotlib
 pandas==2.2.3
