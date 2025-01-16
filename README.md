@@ -1,6 +1,6 @@
 # End2End_Housing_Price_Prediction
 
-This project takes a basic linear regression model regarding the problem of predicting house prices, to produce an end-to-end data science project.
+This project takes a basic linear regression model regarding the problem of predicting house prices in California, to produce an end-to-end data science project. The prediction can be accessed on [pythonanywhere](https://apb.pythonanywhere.com/) temporarily.
 
 ### Creating a virtual environment:
 1. Open new terminal on VSCode.
@@ -40,6 +40,6 @@ This project takes a basic linear regression model regarding the problem of pred
 }
 4. Send the request and the output is the predicted price.
 
-### Input from Client's end from homepage:
+### Input from Client's end from homepage (https://apb.pythonanywhere.com/):
 1. Enter values against the relevant boxes in the homepage.
 2. Press the Predict button.
